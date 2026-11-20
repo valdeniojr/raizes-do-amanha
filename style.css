@@ -536,49 +536,155 @@ h2 em {
 
 /* DOAÇÃO */
 
-.banner-doacao {
-  overflow: hidden;
-  background: var(--azul-escuro);
-  color: white;
+.impacto-doacao {
+  background: var(--fundo);
 }
 
-.conteudo-doacao {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  min-height: 520px;
-  align-items: center;
-  position: relative;
-  gap: 35px;
+.titulo-impacto {
+  max-width: 650px;
+  margin: 0 auto 40px;
+  text-align: center;
 }
 
-.texto-doacao {
-  padding-block: 55px;
-  position: relative;
-  z-index: 2;
-}
-
-.texto-doacao h2 {
-  font-size: 48px;
+.titulo-impacto h2 {
+  font-size: 42px;
+  font-weight: 800;
   letter-spacing: -0.04em;
-  margin-bottom: 15px;
+  color: var(--azul-escuro);
+  margin-bottom: 17px;
 }
 
-.texto-doacao > p:not(.destaque) {
-  max-width: 400px;
-  color: rgba(255, 255, 255, 0.78);
+.titulo-impacto h2 em {
+  color: var(--azul);
+}
+
+.titulo-impacto > p:not(.destaque) {
+  color: var(--cinza);
+  font-size: 14px;
+}
+
+.calculadora-impacto {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 32px;
+  background: white;
+  border: 1px solid var(--borda);
+  border-radius: var(--arredondado);
+  box-shadow: var(--sombra);
+}
+
+.calculadora-impacto > h3 {
+  font-size: 19px;
+  color: var(--azul-escuro);
+  margin-bottom: 22px;
+}
+
+.valores-doacao {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.valor-doacao {
+  padding: 15px 8px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: white;
+  color: var(--azul-escuro);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.valor-doacao:hover,
+.valor-doacao.ativo {
+  background: #e3f1ff;
+  border-color: var(--azul);
+  color: var(--azul);
+}
+
+.campo-doacao {
+  margin-top: 24px;
+}
+
+.campo-doacao label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cinza);
+}
+
+.campo-doacao input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: #fbfcfd;
+  color: var(--texto);
+  font: inherit;
+  outline: none;
+}
+
+.campo-doacao input:focus {
+  border-color: var(--azul);
+}
+
+.resultado-impacto {
+  margin: 25px 0;
+  padding: 24px;
+  border-radius: 17px;
+  background: #f0f7ff;
+}
+
+.cabecalho-impacto {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icone-impacto {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: #e3f1ff;
+  font-size: 26px;
+}
+
+.cabecalho-impacto p {
+  margin: 0 0 4px;
+  color: var(--cinza);
+  font-size: 12px;
+}
+
+.cabecalho-impacto h3 {
+  margin: 0;
+  font-size: 23px;
+  color: var(--azul-escuro);
+}
+
+.descricao-impacto {
+  margin: 18px 0;
+  color: var(--cinza);
   font-size: 13px;
 }
 
-.texto-doacao .botao {
-  margin-top: 12px;
+.resumo-doacao {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid #dce8f5;
+  font-size: 13px;
+  color: var(--azul-escuro);
 }
 
-.conteudo-doacao > img {
-  align-self: end;
-  width: 100%;
-  max-height: 330px;
-  object-fit: contain;
-  object-position: bottom;
+.resumo-doacao strong {
+  color: var(--azul);
 }
 
 /* EQUIPE */

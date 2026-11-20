@@ -254,18 +254,72 @@
         </div>
       </section>
 
-      <section class="banner-doacao" id="doar">
-        <div class="container conteudo-doacao">
-          <div class="texto-doacao">
-            <p class="destaque texto-claro">Sua ajuda conta</p>
-            <h2>O futuro também<br />começa com <em>você.</em></h2>
+      <section class="impacto-doacao espacamento-secao" id="impacto-doacao">
+        <div class="container">
+          <div class="titulo-impacto">
+            <p class="destaque">Faça a diferença</p>
+            <h2>Pequenas ações, <em>grandes mudanças.</em></h2>
             <p>
-              Sua contribuição pode ajudar a ampliar as oportunidades de
+              Descubra como sua contribuição pode transformar o futuro de
               crianças e jovens.
             </p>
-            <a class="botao botao-branco" href="#contato"
-              >Quero saber como ajudar</a
-            >
+          </div>
+
+          <div class="calculadora-impacto">
+            <h3>Escolha o valor da sua doação</h3>
+
+            <div class="valores-doacao">
+              <button class="valor-doacao" type="button" data-valor="20">
+                R$ 20
+              </button>
+
+              <button class="valor-doacao" type="button" data-valor="50">
+                R$ 50
+              </button>
+
+              <button class="valor-doacao" type="button" data-valor="100">
+                R$ 100
+              </button>
+
+              <button class="valor-doacao" type="button" data-valor="200">
+                R$ 200
+              </button>
+            </div>
+
+            <div class="campo-doacao">
+              <label for="valor-personalizado">Ou digite outro valor</label>
+              <input
+                type="number"
+                id="valor-personalizado"
+                placeholder="Digite um valor"
+                min="1"
+              />
+            </div>
+
+            <div class="resultado-impacto">
+              <div class="cabecalho-impacto">
+                <div class="icone-impacto">📚</div>
+
+                <div>
+                  <p>O impacto da sua doação</p>
+                  <h3 id="quantidade-impacto">0 kit escolar</h3>
+                </div>
+              </div>
+
+              <p class="descricao-impacto" id="descricao-impacto">
+                Sua contribuição pode ajudar a fornecer materiais educativos
+                para crianças atendidas pelo projeto.
+              </p>
+
+              <div class="resumo-doacao">
+                <span>Valor da contribuição</span>
+                <strong id="valor-total">R$ 0,00</strong>
+              </div>
+            </div>
+
+            <button class="botao botao-vermelho botao-largo" type="button">
+              Quero contribuir ❤️
+            </button>
           </div>
         </div>
       </section>
@@ -393,5 +447,6 @@
       </div>
     </footer>
     <script src="js/script.js"></script>
+    <script src="js/doacao.js"></script>
   </body>
 </html>
