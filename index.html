@@ -9,6 +9,10 @@
     />
     <title>Raízes do Amanhã</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
   </head>
   <body>
     <div>
@@ -558,6 +562,44 @@
           </form>
         </div>
       </section>
+
+      <section class="mapa-secao espacamento-secao" id="mapa">
+        <div class="container">
+          <div class="mapa-cabecalho">
+            <p class="destaque">Nossa atuação</p>
+
+            <h2>Onde fazemos <em>a diferença.</em></h2>
+
+            <p>
+              Conheça os lugares onde nossas iniciativas ajudam a transformar
+              vidas e fortalecer comunidades.
+            </p>
+          </div>
+
+          <div class="mapa-container">
+            <div id="mapa-interativo"></div>
+
+            <div class="mapa-rodape">
+              <div class="mapa-informacao">
+                <span class="mapa-icone">📍</span>
+
+                <div>
+                  <strong>Explore nossos projetos</strong>
+                  <p>
+                    Clique nos marcadores para conhecer nossos pontos de
+                    atuação.
+                  </p>
+                </div>
+              </div>
+
+              <span class="mapa-legenda">
+                <span class="mapa-indicador"></span>
+                Projetos sociais
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="rodape">
@@ -580,5 +622,7 @@
     <script src="js/script.js"></script>
     <script src="js/doacao.js"></script>
     <script src="js/formulario.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/mapa.js"></script>
   </body>
 </html>
