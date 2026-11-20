@@ -31,6 +31,11 @@ body {
   line-height: 1.65;
 }
 
+html:has(.menu.is-open),
+body:has(.menu.is-open) {
+  overflow: hidden;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -118,6 +123,15 @@ a {
   color: #36465b;
   position: relative;
   padding: 8px 0;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #36465b;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 .botao {
@@ -791,12 +805,48 @@ h2 em {
     scroll-padding-top: 72px;
   }
 
+  .topo {
+    backdrop-filter: none;
+    background: var(--fundo);
+  }
+
   .container {
     width: min(100% - 34px, 560px);
   }
 
   .menu-container {
     min-height: 72px;
+    position: relative;
+  }
+
+  .menu-container {
+    min-height: 72px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    padding: 18px 24px;
+    background: var(--fundo);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    overflow-y: hidden;
+    z-index: 9999;
+  }
+
+  .menu.is-open {
+    display: flex;
   }
 
   .logo img {
@@ -806,21 +856,6 @@ h2 em {
 
   .logo {
     font-size: 16px;
-  }
-
-  .menu {
-    display: none;
-    position: absolute;
-    top: 71px;
-    left: 0;
-    right: 0;
-    padding: 18px 24px 24px;
-    background: var(--fundo);
-    border-bottom: 1px solid var(--borda);
-    box-shadow: 0 18px 25px rgba(18, 52, 91, 0.1);
-    flex-direction: column;
-    align-items: stretch;
-    gap: 5px;
   }
 
   .link-menu {
@@ -978,7 +1013,6 @@ h2 em {
     flex-direction: column;
     gap: 7px;
   }
-
 }
 
 @media (max-width: 390px) {
@@ -1011,5 +1045,4 @@ h2 em {
   .pessoa-equipe p {
     font-size: 10px;
   }
-
 }

@@ -11,24 +11,39 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="topo" id="inicio">
-      <div class="container menu-container">
-        <a class="logo" href="#inicio" aria-label="Raízes do Amanhã">
-          <span>raízes do <strong>amanhã</strong></span>
-        </a>
-        <nav class="menu" id="menu" aria-label="Navegação principal">
-          <a href="#inicio" class="link-menu">Início</a>
-          <a href="#sobre" class="link-menu">Sobre nós</a>
-          <a href="#projetos" class="link-menu">Projetos</a>
-          <a href="#galeria" class="link-menu">Galeria</a>
-          <a href="#como-ajudar" class="link-menu">Como ajudar</a>
-          <a href="#contato" class="link-menu">Contato</a>
-          <a href="#doar" class="botao botao-pequeno botao-vermelho botao-menu"
-            >Doe agora</a
+    <div>
+      <header class="topo" id="inicio">
+        <div class="container menu-container">
+          <a class="logo" href="#inicio" aria-label="Raízes do Amanhã">
+            <span>raízes do <strong>amanhã</strong></span>
+          </a>
+          <nav class="menu" id="menu" aria-label="Navegação principal">
+            <a href="#inicio" class="link-menu" id="link-menu">Início</a>
+            <a href="#sobre" class="link-menu" id="link-menu">Sobre nós</a>
+            <a href="#projetos" class="link-menu" id="link-menu">Projetos</a>
+            <a href="#galeria" class="link-menu" id="link-menu">Galeria</a>
+            <a href="#como-ajudar" class="link-menu" id="link-menu"
+              >Como ajudar</a
+            >
+            <a href="#contato" class="link-menu" id="link-menu">Contato</a>
+            <a
+              href="#doar"
+              class="botao botao-pequeno botao-vermelho botao-menu"
+              >Doe agora</a
+            >
+          </nav>
+          <button
+            class="menu-btn"
+            id="menu-btn"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="menu"
           >
-        </nav>
-      </div>
-    </header>
+            &#9776;
+          </button>
+        </div>
+      </header>
+    </div>
 
     <main id="conteudo">
       <section class="inicio">
@@ -138,9 +153,7 @@
         <div class="container">
           <div>
             <p class="destaque texto-claro">Nosso Compromisso</p>
-            <h2>
-              Cada oportunidade<br />planta uma <em>nova raiz.</em>
-            </h2>
+            <h2>Cada oportunidade<br />planta uma <em>nova raiz.</em></h2>
             <p>
               Nosso sonho é construir uma rede de apoio na qual crianças,
               famílias, educadores e voluntários cresçam lado a lado.
@@ -379,5 +392,6 @@
         </p>
       </div>
     </footer>
+    <script src="js/script.js"></script>
   </body>
 </html>
