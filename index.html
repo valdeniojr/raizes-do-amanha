@@ -9,26 +9,47 @@
     />
     <title>Raízes do Amanhã</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
   </head>
   <body>
-    <header class="topo" id="inicio">
-      <div class="container menu-container">
-        <a class="logo" href="#inicio" aria-label="Raízes do Amanhã">
-          <span>raízes do <strong>amanhã</strong></span>
-        </a>
-        <nav class="menu" id="menu" aria-label="Navegação principal">
-          <a href="#inicio" class="link-menu">Início</a>
-          <a href="#sobre" class="link-menu">Sobre nós</a>
-          <a href="#projetos" class="link-menu">Projetos</a>
-          <a href="#galeria" class="link-menu">Galeria</a>
-          <a href="#como-ajudar" class="link-menu">Como ajudar</a>
-          <a href="#contato" class="link-menu">Contato</a>
-          <a href="#doar" class="botao botao-pequeno botao-vermelho botao-menu"
-            >Doe agora</a
+    <div>
+      <header class="topo" id="inicio">
+        <div class="container menu-container">
+          <a class="logo" href="#inicio" aria-label="Raízes do Amanhã">
+            <span>raízes do <strong>amanhã</strong></span>
+          </a>
+          <nav class="menu" id="menu" aria-label="Navegação principal">
+            <a href="#inicio" class="link-menu" id="link-menu">Início</a>
+            <a href="#sobre" class="link-menu" id="link-menu">Sobre nós</a>
+            <a href="#projetos" class="link-menu" id="link-menu">Projetos</a>
+            <a href="#galeria" class="link-menu" id="link-menu">Galeria</a>
+            <a href="#como-ajudar" class="link-menu" id="link-menu"
+              >Como ajudar</a
+            >
+            <a href="#voluntariado" class="link-menu" id="link-menu"
+              >Ser voluntário</a
+            >
+            <a
+              href="#doar"
+              class="botao botao-pequeno botao-vermelho botao-menu"
+              >Doe agora</a
+            >
+          </nav>
+          <button
+            class="menu-btn"
+            id="menu-btn"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="menu"
           >
-        </nav>
-      </div>
-    </header>
+            &#9776;
+          </button>
+        </div>
+      </header>
+    </div>
 
     <main id="conteudo">
       <section class="inicio">
@@ -138,9 +159,7 @@
         <div class="container">
           <div>
             <p class="destaque texto-claro">Nosso Compromisso</p>
-            <h2>
-              Cada oportunidade<br />planta uma <em>nova raiz.</em>
-            </h2>
+            <h2>Cada oportunidade<br />planta uma <em>nova raiz.</em></h2>
             <p>
               Nosso sonho é construir uma rede de apoio na qual crianças,
               famílias, educadores e voluntários cresçam lado a lado.
@@ -241,18 +260,72 @@
         </div>
       </section>
 
-      <section class="banner-doacao" id="doar">
-        <div class="container conteudo-doacao">
-          <div class="texto-doacao">
-            <p class="destaque texto-claro">Sua ajuda conta</p>
-            <h2>O futuro também<br />começa com <em>você.</em></h2>
+      <section class="impacto-doacao espacamento-secao" id="impacto-doacao">
+        <div class="container">
+          <div class="titulo-impacto">
+            <p class="destaque">Faça a diferença</p>
+            <h2>Pequenas ações, <em>grandes mudanças.</em></h2>
             <p>
-              Sua contribuição pode ajudar a ampliar as oportunidades de
+              Descubra como sua contribuição pode transformar o futuro de
               crianças e jovens.
             </p>
-            <a class="botao botao-branco" href="#contato"
-              >Quero saber como ajudar</a
-            >
+          </div>
+
+          <div class="calculadora-impacto">
+            <h3>Escolha o valor da sua doação</h3>
+
+            <div class="valores-doacao">
+              <button class="valor-doacao" type="button" data-valor="20">
+                R$ 20
+              </button>
+
+              <button class="valor-doacao" type="button" data-valor="50">
+                R$ 50
+              </button>
+
+              <button class="valor-doacao" type="button" data-valor="100">
+                R$ 100
+              </button>
+
+              <button class="valor-doacao" type="button" data-valor="200">
+                R$ 200
+              </button>
+            </div>
+
+            <div class="campo-doacao">
+              <label for="valor-personalizado">Ou digite outro valor</label>
+              <input
+                type="number"
+                id="valor-personalizado"
+                placeholder="Digite um valor"
+                min="1"
+              />
+            </div>
+
+            <div class="resultado-impacto">
+              <div class="cabecalho-impacto">
+                <div class="icone-impacto">📚</div>
+
+                <div>
+                  <p>O impacto da sua doação</p>
+                  <h3 id="quantidade-impacto">0 kit escolar</h3>
+                </div>
+              </div>
+
+              <p class="descricao-impacto" id="descricao-impacto">
+                Sua contribuição pode ajudar a fornecer materiais educativos
+                para crianças atendidas pelo projeto.
+              </p>
+
+              <div class="resumo-doacao">
+                <span>Valor da contribuição</span>
+                <strong id="valor-total">R$ 0,00</strong>
+              </div>
+            </div>
+
+            <button class="botao botao-vermelho botao-largo" type="button">
+              Quero contribuir ❤️
+            </button>
           </div>
         </div>
       </section>
@@ -295,69 +368,236 @@
         </div>
       </section>
 
-      <section class="contato espacamento-secao" id="contato">
+      <section class="contato espacamento-secao" id="voluntariado">
         <div class="container lista-contato">
-          <div>
-            <p class="destaque">Vamos conversar</p>
-            <h2>Uma boa ideia começa com <em>um oi.</em></h2>
+          <div class="conteudo-contato">
+            <p class="destaque">Faça parte dessa transformação</p>
+
+            <h2>Seu tempo pode <em>transformar vidas.</em></h2>
+
             <p>
-              Quer ser voluntário, propor uma parceria ou saber mais sobre o
-              projeto? Entre em contato para saber mais sobre as atividades, o
-              voluntariado ou as parcerias.
+              Acreditamos que pequenas atitudes podem gerar grandes mudanças.
+              Seja voluntário do Raízes do Amanhã e ajude a construir novas
+              oportunidades para nossa comunidade.
             </p>
+
             <div class="item-contato">
-              <span class="icone-contato">📧</span>
+              <span class="icone-contato">🤝</span>
               <div>
-                <strong>E-mail</strong>
-                <p>contato@raizesdoamanha.com</p>
+                <strong>Faça a diferença</strong>
+                <p>
+                  Contribua com seu tempo, conhecimento e dedicação para
+                  transformar realidades.
+                </p>
               </div>
             </div>
+
             <div class="item-contato">
-              <span class="icone-contato">📍</span>
+              <span class="icone-contato">🌱</span>
               <div>
-                <strong>Onde estamos</strong>
-                <p>Atuação comunitária · Brasil</p>
+                <strong>Cresça com a comunidade</strong>
+                <p>
+                  Compartilhe experiências, desenvolva habilidades e participe
+                  de iniciativas sociais.
+                </p>
               </div>
             </div>
           </div>
-          <form class="formulario-contato" id="formulario-contato">
-            <h3>Envie sua mensagem</h3>
-            <label for="nome">Seu nome</label>
-            <input
-              type="text"
-              id="nome"
-              name="nome"
-              placeholder="Como podemos chamar você?"
-              required
-            />
-            <label for="email">Seu e-mail</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="seu@email.com"
-              required
-            />
-            <label for="assunto">Quero conversar sobre</label>
-            <select id="assunto" name="assunto" required>
-              <option value="">Selecione uma opção</option>
-              <option>Voluntariado</option>
-              <option>Doações</option>
-              <option>Parcerias</option>
-              <option>Outras informações</option>
-            </select>
-            <label for="mensagem">Mensagem</label>
-            <textarea
-              id="mensagem"
-              name="mensagem"
-              rows="4"
-              placeholder="Escreva sua mensagem..."
-              required
-            ></textarea>
-            <botao class="botao botao-vermelho botao-largo" type="submit">
-              Enviar mensagem
-            </botao>
+
+          <form
+            class="formulario-contato"
+            id="formulario-voluntario"
+            novalidate
+          >
+            <div class="cabecalho-formulario">
+              <h3>Inscrição para voluntariado</h3>
+              <p>Preencha seus dados para participar do projeto.</p>
+            </div>
+
+            <div class="campo-formulario">
+              <label for="nome">Nome completo</label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Digite seu nome completo"
+                autocomplete="name"
+                required
+              />
+              <small class="mensagem-erro" id="erro-nome"></small>
+            </div>
+
+            <div class="campo-formulario">
+              <label for="email">E-mail</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="seu@email.com"
+                autocomplete="email"
+                required
+              />
+              <small class="mensagem-erro" id="erro-email"></small>
+            </div>
+
+            <div class="campo-formulario">
+              <label for="telefone">Telefone</label>
+              <input
+                type="tel"
+                id="telefone"
+                name="telefone"
+                placeholder="(00) 00000-0000"
+                autocomplete="tel"
+                required
+              />
+              <small class="mensagem-erro" id="erro-telefone"></small>
+            </div>
+
+            <div class="campo-formulario">
+              <label for="cep">CEP</label>
+              <input
+                type="text"
+                id="cep"
+                name="cep"
+                placeholder="00000-000"
+                inputmode="numeric"
+                maxlength="9"
+                autocomplete="postal-code"
+                required
+              />
+              <small class="mensagem-erro" id="erro-cep"></small>
+            </div>
+
+            <div class="campo-formulario">
+              <label for="logradouro">Endereço</label>
+              <input
+                type="text"
+                id="logradouro"
+                name="logradouro"
+                placeholder="Rua ou avenida"
+                autocomplete="address-line1"
+                required
+              />
+            </div>
+
+            <div class="linha-formulario">
+              <div class="campo-formulario">
+                <label for="bairro">Bairro</label>
+                <input
+                  type="text"
+                  id="bairro"
+                  name="bairro"
+                  placeholder="Seu bairro"
+                  required
+                />
+              </div>
+
+              <div class="campo-formulario">
+                <label for="numero">Número</label>
+                <input
+                  type="text"
+                  id="numero"
+                  name="numero"
+                  placeholder="Nº"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="linha-formulario">
+              <div class="campo-formulario">
+                <label for="cidade">Cidade</label>
+                <input
+                  type="text"
+                  id="cidade"
+                  name="cidade"
+                  placeholder="Sua cidade"
+                  autocomplete="address-level2"
+                  required
+                />
+              </div>
+
+              <div class="campo-formulario">
+                <label for="estado">Estado</label>
+                <input
+                  type="text"
+                  id="estado"
+                  name="estado"
+                  placeholder="UF"
+                  maxlength="2"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="campo-formulario">
+              <label for="area-interesse">Área de interesse</label>
+              <select id="area-interesse" name="area-interesse" required>
+                <option value="">Selecione uma área</option>
+                <option value="educacao">Educação</option>
+                <option value="meio-ambiente">Meio ambiente</option>
+                <option value="eventos">Eventos comunitários</option>
+                <option value="comunicacao">Comunicação</option>
+                <option value="outras">Outras atividades</option>
+              </select>
+              <small class="mensagem-erro" id="erro-area-interesse"></small>
+            </div>
+
+            <div class="campo-formulario">
+              <label for="mensagem">Por que deseja ser voluntário?</label>
+              <textarea
+                id="mensagem"
+                name="mensagem"
+                rows="4"
+                placeholder="Conte um pouco sobre sua motivação..."
+                required
+              ></textarea>
+              <small class="mensagem-erro" id="erro-mensagem"></small>
+            </div>
+            <p id="erro-formulario" class="erro-formulario"></p>
+
+            <button class="botao botao-vermelho botao-largo" type="submit">
+              Quero ser voluntário ❤️
+            </button>
           </form>
+        </div>
+      </section>
+
+      <section class="mapa-secao espacamento-secao" id="mapa">
+        <div class="container">
+          <div class="mapa-cabecalho">
+            <p class="destaque">Nossa atuação</p>
+
+            <h2>Onde fazemos <em>a diferença.</em></h2>
+
+            <p>
+              Conheça os lugares onde nossas iniciativas ajudam a transformar
+              vidas e fortalecer comunidades.
+            </p>
+          </div>
+
+          <div class="mapa-container">
+            <div id="mapa-interativo"></div>
+
+            <div class="mapa-rodape">
+              <div class="mapa-informacao">
+                <span class="mapa-icone">📍</span>
+
+                <div>
+                  <strong>Explore nossos projetos</strong>
+                  <p>
+                    Clique nos marcadores para conhecer nossos pontos de
+                    atuação.
+                  </p>
+                </div>
+              </div>
+
+              <span class="mapa-legenda">
+                <span class="mapa-indicador"></span>
+                Projetos sociais
+              </span>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -379,5 +619,10 @@
         </p>
       </div>
     </footer>
+    <script src="js/script.js"></script>
+    <script src="js/doacao.js"></script>
+    <script src="js/formulario.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/mapa.js"></script>
   </body>
 </html>

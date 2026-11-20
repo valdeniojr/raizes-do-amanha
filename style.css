@@ -31,6 +31,11 @@ body {
   line-height: 1.65;
 }
 
+html:has(.menu.is-open),
+body:has(.menu.is-open) {
+  overflow: hidden;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -118,6 +123,15 @@ a {
   color: #36465b;
   position: relative;
   padding: 8px 0;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #36465b;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 .botao {
@@ -522,49 +536,155 @@ h2 em {
 
 /* DOAÇÃO */
 
-.banner-doacao {
-  overflow: hidden;
-  background: var(--azul-escuro);
-  color: white;
+.impacto-doacao {
+  background: var(--fundo);
 }
 
-.conteudo-doacao {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  min-height: 520px;
-  align-items: center;
-  position: relative;
-  gap: 35px;
+.titulo-impacto {
+  max-width: 650px;
+  margin: 0 auto 40px;
+  text-align: center;
 }
 
-.texto-doacao {
-  padding-block: 55px;
-  position: relative;
-  z-index: 2;
-}
-
-.texto-doacao h2 {
-  font-size: 48px;
+.titulo-impacto h2 {
+  font-size: 42px;
+  font-weight: 800;
   letter-spacing: -0.04em;
-  margin-bottom: 15px;
+  color: var(--azul-escuro);
+  margin-bottom: 17px;
 }
 
-.texto-doacao > p:not(.destaque) {
-  max-width: 400px;
-  color: rgba(255, 255, 255, 0.78);
+.titulo-impacto h2 em {
+  color: var(--azul);
+}
+
+.titulo-impacto > p:not(.destaque) {
+  color: var(--cinza);
+  font-size: 14px;
+}
+
+.calculadora-impacto {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 32px;
+  background: white;
+  border: 1px solid var(--borda);
+  border-radius: var(--arredondado);
+  box-shadow: var(--sombra);
+}
+
+.calculadora-impacto > h3 {
+  font-size: 19px;
+  color: var(--azul-escuro);
+  margin-bottom: 22px;
+}
+
+.valores-doacao {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.valor-doacao {
+  padding: 15px 8px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: white;
+  color: var(--azul-escuro);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.valor-doacao:hover,
+.valor-doacao.ativo {
+  background: #e3f1ff;
+  border-color: var(--azul);
+  color: var(--azul);
+}
+
+.campo-doacao {
+  margin-top: 24px;
+}
+
+.campo-doacao label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cinza);
+}
+
+.campo-doacao input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: #fbfcfd;
+  color: var(--texto);
+  font: inherit;
+  outline: none;
+}
+
+.campo-doacao input:focus {
+  border-color: var(--azul);
+}
+
+.resultado-impacto {
+  margin: 25px 0;
+  padding: 24px;
+  border-radius: 17px;
+  background: #f0f7ff;
+}
+
+.cabecalho-impacto {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icone-impacto {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: #e3f1ff;
+  font-size: 26px;
+}
+
+.cabecalho-impacto p {
+  margin: 0 0 4px;
+  color: var(--cinza);
+  font-size: 12px;
+}
+
+.cabecalho-impacto h3 {
+  margin: 0;
+  font-size: 23px;
+  color: var(--azul-escuro);
+}
+
+.descricao-impacto {
+  margin: 18px 0;
+  color: var(--cinza);
   font-size: 13px;
 }
 
-.texto-doacao .botao {
-  margin-top: 12px;
+.resumo-doacao {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid #dce8f5;
+  font-size: 13px;
+  color: var(--azul-escuro);
 }
 
-.conteudo-doacao > img {
-  align-self: end;
-  width: 100%;
-  max-height: 330px;
-  object-fit: contain;
-  object-position: bottom;
+.resumo-doacao strong {
+  color: var(--azul);
 }
 
 /* EQUIPE */
@@ -604,7 +724,7 @@ h2 em {
   font-size: 11px;
 }
 
-/* CONTATO */
+/* VOLUNTÁRIO */
 
 .contato {
   background: #f4f7f9;
@@ -612,9 +732,15 @@ h2 em {
 
 .lista-contato {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 100px;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(24px, 5vw, 100px);
   align-items: start;
+}
+
+.conteudo-contato {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .contato h2 {
@@ -631,6 +757,7 @@ h2 em {
 .icone-contato {
   display: grid;
   place-items: center;
+  flex-shrink: 0;
   width: 43px;
   height: 43px;
   border-radius: 13px;
@@ -647,39 +774,71 @@ h2 em {
   margin: 2px 0 0;
   color: var(--cinza);
   font-size: 12px;
+  line-height: 1.6;
 }
 
 .formulario-contato {
+  min-width: 0;
   padding: 32px;
   border-radius: 23px;
-  background: white;
+  background: #fff;
   box-shadow: var(--sombra);
 }
 
-.formulario-contato h3 {
-  font-size: 23px;
-  margin-bottom: 23px;
+.cabecalho-formulario {
+  margin-bottom: 24px;
 }
 
-.formulario-contato label {
+.formulario-contato .cabecalho-formulario h3 {
+  margin: 0 0 8px;
+  font-size: 23px;
+}
+
+.cabecalho-formulario p {
+  margin: 0;
+  color: #777;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  margin-bottom: 18px;
+}
+
+.formulario-contato .campo-formulario label {
   display: block;
-  margin: 14px 0 7px;
+  margin: 0;
   color: #34465d;
-  font-size: 12px;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .formulario-contato input,
 .formulario-contato select,
 .formulario-contato textarea {
   width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 12px 13px;
   border: 1px solid #dce4eb;
   border-radius: 10px;
+  outline: none;
   background: #fbfcfd;
   color: var(--texto);
-  padding: 12px 13px;
-  outline: none;
+  font: inherit;
   font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.formulario-contato input::placeholder,
+.formulario-contato textarea::placeholder {
+  color: #9aa6b2;
 }
 
 .formulario-contato input:focus,
@@ -690,12 +849,165 @@ h2 em {
 }
 
 .formulario-contato textarea {
-  resize: vertical;
   min-height: 105px;
+  resize: vertical;
+}
+
+.linha-formulario {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.mensagem-erro {
+  display: block;
+  color: #c62828;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.erro-formulario {
+  color: #c62828;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.erro-formulario:empty {
+  display: none;
+}
+
+.formulario-contato input.invalido,
+.formulario-contato select.invalido,
+.formulario-contato textarea.invalido {
+  border-color: #c62828;
+}
+
+.formulario-contato input.valido,
+.formulario-contato select.valido,
+.formulario-contato textarea.valido {
+  border-color: #2e7d32;
+}
+
+.formulario-contato input.invalido:focus,
+.formulario-contato select.invalido:focus,
+.formulario-contato textarea.invalido:focus {
+  border-color: #c62828;
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.1);
+}
+
+.formulario-contato input.valido:focus,
+.formulario-contato select.valido:focus,
+.formulario-contato textarea.valido:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
 }
 
 .formulario-contato .botao {
   margin-top: 18px;
+}
+
+/* MAPA */
+
+.mapa-secao {
+  background: white;
+}
+
+.mapa-cabecalho {
+  max-width: 620px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.mapa-cabecalho h2 {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.mapa-cabecalho > p:last-child {
+  color: var(--cinza);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.mapa-container {
+  overflow: hidden;
+  border: 1px solid #e3eaf0;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: var(--sombra);
+}
+
+#mapa-interativo {
+  width: 100%;
+  height: 440px;
+  z-index: 0;
+}
+
+.mapa-rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 28px;
+}
+
+.mapa-informacao {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mapa-icone {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 13px;
+  background: #e3f1ff;
+  font-size: 22px;
+}
+
+.mapa-informacao strong {
+  color: var(--texto);
+  font-size: 14px;
+}
+
+.mapa-informacao p {
+  margin: 5px 0 0;
+  color: var(--cinza);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.mapa-legenda {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  color: var(--cinza);
+  font-size: 12px;
+}
+
+.mapa-indicador {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--azul);
+}
+
+.leaflet-container {
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+}
+
+.leaflet-popup-content {
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 /* FOOTER */
@@ -791,12 +1103,48 @@ h2 em {
     scroll-padding-top: 72px;
   }
 
+  .topo {
+    backdrop-filter: none;
+    background: var(--fundo);
+  }
+
   .container {
     width: min(100% - 34px, 560px);
   }
 
   .menu-container {
     min-height: 72px;
+    position: relative;
+  }
+
+  .menu-container {
+    min-height: 72px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    padding: 18px 24px;
+    background: var(--fundo);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    overflow-y: hidden;
+    z-index: 9999;
+  }
+
+  .menu.is-open {
+    display: flex;
   }
 
   .logo img {
@@ -806,21 +1154,6 @@ h2 em {
 
   .logo {
     font-size: 16px;
-  }
-
-  .menu {
-    display: none;
-    position: absolute;
-    top: 71px;
-    left: 0;
-    right: 0;
-    padding: 18px 24px 24px;
-    background: var(--fundo);
-    border-bottom: 1px solid var(--borda);
-    box-shadow: 0 18px 25px rgba(18, 52, 91, 0.1);
-    flex-direction: column;
-    align-items: stretch;
-    gap: 5px;
   }
 
   .link-menu {
@@ -941,10 +1274,6 @@ h2 em {
     padding-block: 55px 10px;
   }
 
-  .conteudo-doacao > img {
-    max-height: 260px;
-  }
-
   .lista-equipe {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
@@ -979,6 +1308,20 @@ h2 em {
     gap: 7px;
   }
 
+  .mapa-cabecalho {
+    margin-bottom: 28px;
+  }
+
+  #mapa-interativo {
+    height: 350px;
+  }
+
+  .mapa-rodape {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+  }
 }
 
 @media (max-width: 390px) {
@@ -1012,4 +1355,15 @@ h2 em {
     font-size: 10px;
   }
 
+  #mapa-interativo {
+    height: 300px;
+  }
+
+  .mapa-container {
+    border-radius: 16px;
+  }
+
+  .mapa-informacao {
+    align-items: flex-start;
+  }
 }
